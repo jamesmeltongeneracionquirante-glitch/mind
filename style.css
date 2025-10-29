@@ -1,0 +1,45 @@
+section {
+  position:absolute;
+  width:100%;
+  height:100vh;
+  top:0;
+  left:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:justify;
+  background-size:cover;
+  background-position:center;
+  transition:opacity 0.8s ease;
+  opacity:0;
+  overflow-y:auto; /* allow scrolling inside on mobile */
+  padding:5%; /* instead of fixed 80px */
+}
+
+section.active { opacity:1; z-index:1; }
+.content {
+  max-width: 90%;   /* scales with screen */
+  background: rgba(0,0,0,0.5);
+  padding: 1.5rem;  /* smaller padding for mobile */
+  border-radius: 12px;
+  line-height: 1.6;
+  overflow-wrap: break-word; /* prevent text overflow */
+  word-break: break-word; /* ✅ added to fix long text overflow on mobile */
+}
+
+@media (max-width: 768px) {
+  h1 { font-size:1.2rem; }
+  h2 { font-size:1rem; }
+  .nav-btn { padding:8px 15px; font-size:0.9rem; }
+  .quote-box { font-size:0.9rem; padding:15px; }
+  .content { padding:1rem; }
+}
+
+@media (max-width: 480px) {
+  section { height:auto; min-height:100vh; } /* ✅ added for proper mobile scaling */
+  h1 { font-size:1.2rem; }
+  h2 { font-size:1rem; }
+  .nav-btn { padding:8px 15px; font-size:0.8rem; }
+  .content { padding:0.8rem; }
+  .quote-box { font-size:0.85rem; padding:12px; }
+}
